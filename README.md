@@ -155,4 +155,3 @@ bundler exec rake spree_auth:admin:create
 
 ### README ファイル編集テスト
 circle ci の連携テストです。hogehoge
-bundle install
