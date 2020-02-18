@@ -154,4 +154,4 @@ bundler exec rake spree_auth:admin:create
 スペック不足など、何らかの理由でDockerでの開発が困難な場合は[こちら](./WITHOUTDOCKER.md)を参考に開発環境をセットアップしてください。
 
 ### README ファイル編集テスト
-circle ci の連携テストです。
+circle ci の連携テストです。hogehoge
