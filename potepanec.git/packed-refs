@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+4357efa10570365dbb8b3c35c51573032eb80c72 refs/heads/201909_update_bundle
+8e0ae3a931b8121b8ccce477db3361d4b3594a89 refs/heads/auto_spree_install
+4a660c81ea263568f385bbae712b58f09e928254 refs/heads/fix/broken_link
+537b123ae105dafb7ccef4a2b2a0e182c5c43652 refs/heads/master
+07b69dc9e6cff1eefe2bd6530d9eb23a50353393 refs/heads/task5/suggest
+c0cace77252b24e1a157875f2e6e5c418bc6379e refs/heads/ver/potepancamp_2018
+977b366a5fb7afe5e78070420c3b6b3e01d2a3db refs/heads/wip/develop
