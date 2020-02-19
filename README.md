@@ -156,3 +156,4 @@ bundler exec rake spree_auth:admin:create
 ### README ファイル編集テスト
 circle ci の連携テストです。
 rubocopがエラーになってしまいます。
+AWSキーを修正して再度実行
