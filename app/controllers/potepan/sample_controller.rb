@@ -1,5 +1,4 @@
 class Potepan::SampleController < ApplicationController
-  
   def index
   end
 
