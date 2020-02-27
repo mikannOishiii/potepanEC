@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   namespace :potepan do
     resources :products
     root 'static_pages#home'
-    # get '/',                        to: 'sample#index'
-    # get 'index',                    to: 'sample#index'
     get :product_grid_left_sidebar, to: 'sample#product_grid_left_sidebar'
     get :product_list_left_sidebar, to: 'sample#product_list_left_sidebar'
     get :single_product,            to: 'sample#single_product'
