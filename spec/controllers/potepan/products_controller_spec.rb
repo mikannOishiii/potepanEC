@@ -2,12 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe 'GET #show' do
-    before do
-      product = FactoryBot.create(:product)
-      get :show, params: { id: product.id }
-    end
+    let(:product) { FactoryBot.create(:product) }
 
     it "returns http success" do
+      get :show, params: { id: product.id }
       expect(response).to have_http_status(:success)
     end
   end
