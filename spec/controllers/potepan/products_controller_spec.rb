@@ -14,5 +14,13 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(product.display_price).to eq product.display_price
       expect(product.description).to eq product.description
     end
+    it "showテンプレートで表示されること" do
+      get :show, params: { id: product.id }
+      expect(response).to render_template(:show)
+    end
+    it '@productが取得できていること' do
+      get :show, params: { id: product.id }
+      expect(assigns :product).to eq product
+    end
   end
 end
