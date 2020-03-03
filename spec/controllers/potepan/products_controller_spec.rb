@@ -20,7 +20,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
     end
     it '@productが取得できていること' do
       get :show, params: { id: product.id }
-      expect(assigns :product).to eq product
+      expect(assigns(:product)).to eq product
     end
   end
 end
