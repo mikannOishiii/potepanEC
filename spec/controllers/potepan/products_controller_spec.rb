@@ -11,9 +11,11 @@ RSpec.describe Potepan::ProductsController, type: :controller do
     it "正常にレスポンスを返すこと" do
       expect(response).to have_http_status(:success)
     end
+
     it "showテンプレートで表示されること" do
       expect(response).to render_template(:show)
     end
+
     it '@productが取得できていること' do
       expect(assigns(:product)).to eq product
     end
