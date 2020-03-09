@@ -6,6 +6,10 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(full_title("")).to eq "POTEPAN BIGBAG Store"
     end
 
+    it "ページタイトルがnilのときサイトタイトルのみを返す" do
+      expect(full_title(nil)).to eq "POTEPAN BIGBAG Store"
+    end
+
     it "ページタイトルがあるときページタイトルとサイトタイトルを返す" do
       expect(full_title("ページタイトル")).to eq "ページタイトル - POTEPAN BIGBAG Store"
     end
