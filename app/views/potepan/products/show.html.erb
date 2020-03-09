@@ -1,9 +1,2 @@
 <% provide(:title, "#{@product.name}") %>
-<div class="main-wrapper">
-  <%= render 'layouts/header' %>
-  <%= render 'layouts/navbar' %>
   <%= render 'content', product: @product %>
-  <%= render 'layouts/footer' %>
-</div>
-<% render 'layouts/login_modal'%>
-<% render 'layouts/signup_modal'%>

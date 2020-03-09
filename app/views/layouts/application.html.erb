@@ -10,7 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main-wrapper">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/navbar' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+    <% render 'layouts/login_modal'%>
+    <% render 'layouts/signup_modal'%>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
