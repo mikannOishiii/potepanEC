@@ -1,0 +1,16 @@
+<% provide(:title, "#{@product.name}") %>
+<%= render 'layouts/page_title', product: @product %>
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix">
+  <div class="container">
+    <div class="row singleProduct">
+      <div class="col-xs-12">
+        <div class="media">
+          <%= render 'media-left', product: @product %>
+          <%= render 'media-body', product: @product %>
+        </div>
+      </div>
+    </div>
+    <%= render 'related_products' %>
+  </div>
+</section>
