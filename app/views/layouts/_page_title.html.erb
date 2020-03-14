@@ -12,6 +12,11 @@
           <li>
             <%= link_to('HOME', potepan_root_path) %>
           </li>
+          <% unless current_page?(controller: 'products', action: 'show') %>
+          <li>
+            <%= link_to('SHOP', "#") %>
+          </li>
+          <% end %>
           <li class="active"><%= content.name %></li>
         </ol>
       </div>

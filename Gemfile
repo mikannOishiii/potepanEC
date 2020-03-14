@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rails-erd'
   gem 'annotate'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
