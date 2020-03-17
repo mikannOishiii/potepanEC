@@ -16,12 +16,16 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       expect(response).to render_template(:show)
     end
 
-    it '@categoryが取得できていること' do
-      expect(assigns(:category)).to eq taxon1
+    it '@taxonが取得できていること' do
+      expect(assigns(:taxon)).to eq taxon1
     end
 
     it '@productsが取得できていること' do
-      expect(assigns(:products)).to eq taxon1.products
+      expect(assigns(:products)).to eq taxon1.all_products
+    end
+
+    it '@taxonomiesが取得できていること' do
+      expect(assigns(:taxonomies)).to eq taxonomies
     end
   end
 end

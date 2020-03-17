@@ -3,17 +3,15 @@
   <div class="panel-body">
     <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
       <ul class="nav navbar-nav side-nav">
-      <% Spree::Taxonomy.all.each do |taxonomy| %>
+      <% taxonomies.each do |taxonomy| %>
         <li>
           <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxonomy.name %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
           <ul id= <%= taxonomy.name %> class="collapse collapseItem">
-            <% taxons = Spree::Taxon.leaves.where("taxonomy_id = ?", taxonomy.id) %>
-            <% taxons.each do |taxon| %>
-              <li>
-                <%= link_to potepan_category_path(taxon.id) do %>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i><%= taxon.name %> <span>(<%= taxon.products.count %>)</span>
-                <% end %>
-              </li>
+            <% taxonomy.root.leaves.each do |leaf| %>
+            <li>
+              <%= link_to potepan_category_path(leaf.id) do %><i class="fa fa-caret-right" aria-hidden="true"></i><%= leaf.name %> <span>(<%= leaf.products.count %>)</span>
+              <% end %>
+            </li>
             <% end %>
           </ul>
         </li>

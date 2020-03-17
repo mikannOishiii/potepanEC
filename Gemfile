@@ -48,8 +48,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails-erd'
   gem 'annotate'
+end
+
+group :test do
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
