@@ -12,8 +12,8 @@ RSpec.feature "Categories", type: :feature do
     # taxonomyが表示される
     expect(page).to have_content taxonomy.name
     # taxon1, taxon2 のカテゴリ名(と紐づく商品数)が表示される
-    expect(page).to have_content "Bags (2)"
-    expect(page).to have_content "Mugs (0)"
+    expect(page).to have_content "#{taxon1.name} (#{taxon1.products.count})"
+    expect(page).to have_content "#{taxon2.name} (#{taxon2.products.count})"
   end
 
   scenario "カテゴリに紐づく商品一覧が表示される" do
