@@ -12,15 +12,14 @@ RSpec.feature "Categories", type: :feature do
     # taxonomyが表示される
     expect(page).to have_content taxonomy.name
     # taxon1, taxon2 のカテゴリ名(と紐づく商品数)が表示される
-    expect(page).to have_content "#{taxon1.name} (#{taxon1.products.count})"
-    expect(page).to have_content "#{taxon2.name} (#{taxon2.products.count})"
+    expect(page).to have_content "#{taxon1.name} (#{taxon1.all_products.count})"
+    expect(page).to have_content "#{taxon2.name} (#{taxon2.all_products.count})"
   end
 
   scenario "カテゴリに紐づく商品一覧が表示される" do
     # taxon1に紐づくすべての商品が表示される
-    taxon1.products.each do |product|
-      expect(page).to have_content product.name
-    end
+    expect(page).to have_content product1.name
+    expect(page).to have_content product2.name
     # taxon1に紐づかない商品は表示されない
     expect(page).not_to have_content other_product.name
   end

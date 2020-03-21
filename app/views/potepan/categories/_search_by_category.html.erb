@@ -14,7 +14,7 @@
             <li>
               <%= link_to potepan_category_path(leaf.id) do %>
                 <i class="fa fa-caret-right" aria-hidden="true"></i>
-                <%= leaf.name %> <span>(<%= leaf.products.count %>)</span>
+                <%= leaf.name %> <span>(<%= leaf.all_products.count %>)</span>
               <% end %>
             </li>
             <% end %>
