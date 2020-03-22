@@ -7,7 +7,6 @@ RSpec.feature "Categories", type: :feature do
     visit potepan_category_path(taxon1.id)
   end
 
-  # 商品が表示される
   scenario "サイドバーにカテゴリが表示される" do
     # taxonomyが表示される
     expect(page).to have_content taxonomy.name
