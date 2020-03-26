@@ -9,7 +9,7 @@
               <%= taxonomy.name %>
               <i class="fa fa-plus"></i>
             </a>
-            <ul id= "taxonomy_<%= taxonomy.id %>" class="collapse collapseItem">
+            <ul id="taxonomy_<%= taxonomy.id %>" class="collapse collapseItem">
               <% taxonomy.root.leaves.each do |leaf| %>
                 <li>
                   <%= link_to potepan_category_path(leaf.id) do %>
