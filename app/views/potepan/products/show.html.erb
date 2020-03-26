@@ -1,5 +1,5 @@
-<% provide(:title, "#{@product.name}") %>
-<%= render 'layouts/page_title', product: @product %>
+<% provide(:title, @product.name) %>
+<%= render 'shared/page_title', content_name: @product.name  %>
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
   <div class="container">
