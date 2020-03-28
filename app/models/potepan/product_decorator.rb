@@ -6,7 +6,7 @@ module Potepan::ProductDecorator
   end
 
   def order_asc_related_products
-    Spree::Product.includes(master: [:images, :default_price]).in_taxons(taxons).distinct.where.not("product_id = ?", id)
+    Spree::Product.includes(master: [:images, :default_price]).in_taxons(taxons).distinct.where.not(id: id)
   end
 
   Spree::Product.prepend self
