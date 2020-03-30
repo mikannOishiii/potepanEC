@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
-  let(:product) { create(:product) }
+  let!(:taxon) { create(:taxon) }
+  let!(:product) { create(:product, taxons: [taxon]) }
+  let!(:related_products) { create_list(:product, 5, taxons: [taxon]) }
 
   describe 'GET #show' do
     before do
@@ -18,6 +20,10 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     it '@productが取得できていること' do
       expect(assigns(:product)).to eq product
+    end
+
+    it '関連商品は4つ取得できていること' do
+      expect(assigns(:related_products).length).to eq 4
     end
   end
 end
