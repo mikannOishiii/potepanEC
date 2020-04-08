@@ -27,6 +27,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: mysql
       REDIS_URL: "redis://redis:6379"
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY} 
       PRESITE_URL: ${PRESITE_URL}
       PRESITE_API_KEY: ${PRESITE_API_KEY}
     depends_on:
