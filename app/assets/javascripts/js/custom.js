@@ -239,7 +239,7 @@ jQuery(document).ready(function() {
         type: 'GET',
         cache: false,
         dataType: 'json',
-        data: { term: request.term },
+        data: { keyword: request.term, max_num: 5 },
         success: function(data) {
           response(data);
         },
