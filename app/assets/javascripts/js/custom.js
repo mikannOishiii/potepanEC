@@ -245,6 +245,9 @@ jQuery(document).ready(function() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           response(['']);
+          console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+          console.log("textStatus     : " + textStatus);
+          console.log("errorThrown    : " + errorThrown.message);
         }
       });
     },
