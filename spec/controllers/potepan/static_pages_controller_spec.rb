@@ -33,8 +33,8 @@ RSpec.describe Potepan::StaticPagesController, type: :controller do
         expect(response).to have_http_status 200
       end
 
-      it "@keywordsが取得できている" do
-        expect(assigns(:keywords)).to eq ["rails", "rails for women", "rails for men"]
+      it "keywords(= res.body)が取得できている" do
+        expect(response.body).to eq "[\"rails\",\"rails for women\",\"rails for men\"]"
       end
     end
 

@@ -10,12 +10,12 @@ class Potepan::StaticPagesController < ApplicationController
     header = { "Authorization" => "Bearer #{key}" }
     query = { 'keyword' => params[:keyword], 'max_num' => params[:max_num] }
     res = client.get(url, query, header)
-    @status = res.status_code
-    @keywords = res.body
-    if @status == 200
-      render json: @keywords
+    status = res.status_code
+    keywords = res.body
+    if status == 200
+      render json: keywords
     else
-      raise "response failed. ErrCode: #{@status} / ErrMessage: #{@keywords}"
+      raise "response failed. ErrCode: #{status} / ErrMessage: #{keywords}"
     end
   end
 end
