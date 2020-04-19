@@ -235,7 +235,7 @@ jQuery(document).ready(function() {
   $(".ui-autocomplete-input").autocomplete({
     source: function(request, response) {
       $.ajax({
-        url: "/potepan/suggest",
+        url: "/potepan/product_suggests",
         type: "GET",
         cache: false,
         dataType: "json",
