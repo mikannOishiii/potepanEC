@@ -2,14 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductSuggestsController, type: :controller do
   describe "GET #index" do
-    url = "https://presite-potepanec-task5.herokuapp.com/potepan/api/suggests"
+    url = Rails.application.credentials.presite[:PRESITE_URL]
+    key = Rails.application.credentials.presite[:PRESITE_API_KEY]
 
     context "status code が 200 OK の場合" do
       before do
         stub_request(:get, url).
           with(
-            headers: { 'Authorization' => 'Bearer api123' },
-            query: hash_including({ :keyword => 'rails', :max_num => '5' })
+            headers: { "Authorization" => "Bearer #{key}" },
+            query: hash_including({ :keyword => "rails", :max_num => "5" })
           ).to_return(status: 200, body: ["rails", "rails for women", "rails for men"])
         get :index, params: { keyword: "rails", max_num: 5 }
       end
@@ -17,7 +18,7 @@ RSpec.describe Potepan::ProductSuggestsController, type: :controller do
       it 'stubの中身が取得できている' do
         expect(WebMock).to have_requested(:get, url).
           with(
-            headers: { "Authorization" => "Bearer api123" },
+            headers: { "Authorization" => "Bearer #{key}" },
             query: { keyword: "rails", max_num: "5" }
           )
       end
@@ -36,7 +37,7 @@ RSpec.describe Potepan::ProductSuggestsController, type: :controller do
       before do
         stub_request(:get, url).
           with(
-            headers: { 'Authorization' => 'Bearer api123' },
+            headers: { "Authorization" => "Bearer #{key}" },
             query: hash_including({ keyword: "rails", max_num: "5" })
           ).to_return(
             status: 500,
