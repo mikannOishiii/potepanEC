@@ -254,8 +254,6 @@ jQuery(document).ready(function() {
     }
   });
   $('.ui-front[id*="ui-id-"]').hover(function() {
-    $(".dropdown").addClass("open")
-  }, function() {
-    $(".dropdown").removeClass("open")
+    $(".dropdown").toggleClass("open");
   })
 });
