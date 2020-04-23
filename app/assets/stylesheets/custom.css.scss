@@ -1,3 +1,7 @@
+@import "jquery-ui/autocomplete";
+@import "jquery-ui/theme";
+@import "jquery-ui/menu";
+
 .input-group-addon:last-child {
    background: #47bac1;
    color: #fff;
@@ -7,4 +11,8 @@
    width: 400px;
    margin-top: 0;
    padding: 16px 16px 0;
+}
+
+.ui-front {
+  z-index: 999;
 }

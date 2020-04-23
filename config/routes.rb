@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount Spree::Core::Engine, at: '/'
 
   namespace :potepan do
+    resources :product_suggests, only: [:index]
     resources :products, only: [:show]
     resources :categories, only: [:show]
     root 'static_pages#home'

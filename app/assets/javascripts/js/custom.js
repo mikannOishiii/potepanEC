@@ -229,3 +229,31 @@ function FormSubmit() {
   	addEvent(window,"resize",footerFixed);
 
   }
+//============================== SUGGESTS =========================
+
+jQuery(document).ready(function() {
+  $(".ui-autocomplete-input").autocomplete({
+    source: function(request, response) {
+      $.ajax({
+        url: "/potepan/product_suggests",
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        data: { keyword: request.term, max_num: 5 },
+        success: function(data) {
+          response(data);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          response([""]);
+        }
+      });
+    },
+    minLength: 1,
+    change: function() {
+      $(".dropdown").addClass("open")
+    }
+  });
+  $('.ui-front[id*="ui-id-"]').hover(function() {
+    $(".dropdown").toggleClass("open");
+  })
+});
