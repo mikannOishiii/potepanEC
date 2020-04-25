@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :potepan_suggest, class: 'Potepan::Suggest' do
-    keyword { "MyString" }
+    sequence(:keyword) { |n| "rails#{n}" }
   end
 end

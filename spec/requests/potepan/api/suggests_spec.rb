@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Potepan::Api::SuggestsController, type: :request do
-  let!(:suggest1) { create(:potepan_suggest, keyword: "rails1") }
-  let!(:suggest2) { create(:potepan_suggest, keyword: "rails2") }
-  let!(:suggest3) { create(:potepan_suggest, keyword: "rails3") }
-  let!(:suggest4) { create(:potepan_suggest, keyword: "rails4") }
-  let!(:suggest5) { create(:potepan_suggest, keyword: "rails5") }
-  let!(:suggest6) { create(:potepan_suggest, keyword: "rails6") }
+  let!(:match_keywords_rails) { create_list(:potepan_suggest, 5) }
+  let!(:not_match_keyword_rails) { create(:potepan_suggest, keyword: "apache") }
 
-  describe 'SuggestAPI' do
+  describe "SuggestAPI" do
     key = Rails.application.credentials.presite[:PRESITE_API_KEY]
 
     context "status code が 200 OK の場合" do
@@ -22,10 +18,12 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
       end
 
       it "正しいデータを取得して返している" do
-        json = JSON.parse(response.body)
-        expect(json.length).to eq 5
-        expect(json).to eq ["rails1", "rails2", "rails3", "rails4", "rails5"]
-        expect(json).not_to include "rails6"
+        expect(json_response.length).to eq 5
+        expect(json_response).to eq ["rails6", "rails7", "rails8", "rails9", "rails10"]
+      end
+
+      it "正しくないデータは返さない" do
+        expect(json_response).not_to include "apache"
       end
     end
 
@@ -40,8 +38,7 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
       end
 
       it "エラーメッセージを返している" do
-        json = JSON.parse(response.body)
-        expect(json).to eq "API key authentication failed"
+        expect(json_response).to eq "API key authentication failed"
       end
     end
   end
