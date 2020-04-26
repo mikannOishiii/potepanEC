@@ -7,33 +7,33 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
   describe "SuggestAPI" do
     key = Rails.application.credentials.presite[:PRESITE_API_KEY]
 
-    context "status code が 200 OK の場合" do
+    context "リクエストに成功した場合" do
       before do
         get "/potepan/api/suggests", params: { keyword: "rails", max_num: 5 },
                                      headers: { "Authorization" => "Bearer #{key}" }
       end
 
-      it "正しいレスポンスを返している（200ok）" do
+      it "ステータスコードは200を返す" do
         expect(response).to have_http_status 200
       end
 
-      it "正しいデータを取得して返している" do
+      it "検索マッチしたキーワードをリクエストで最大5件返している" do
         expect(json_response.length).to eq 5
         expect(json_response).to eq ["rails6", "rails7", "rails8", "rails9", "rails10"]
       end
 
-      it "正しくないデータは返さない" do
+      it "検索マッチしないキーワードは返さない" do
         expect(json_response).not_to include "apache"
       end
     end
 
-    context "status code が 401 error の場合" do
+    context "トークン認証失敗により、リクエストに失敗した場合" do
       before do
         get "/potepan/api/suggests", params: { keyword: "rails", max_num: 5 },
                                      headers: { "Authorization" => "Bearer invalid" }
       end
 
-      it "正しいレスポンスを返している（401Unauthorized）" do
+      it "ステータスコードは401を返す" do
         expect(response).to have_http_status 401
       end
 
