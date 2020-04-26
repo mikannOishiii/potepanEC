@@ -17,7 +17,7 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
         expect(response).to have_http_status 200
       end
 
-      it "検索マッチしたキーワードをリクエストで最大5件返している" do
+      it "検索マッチしたキーワードを5件返している" do
         expect(json_response.length).to eq 5
         expect(json_response).to eq ["rails6", "rails7", "rails8", "rails9", "rails10"]
       end
