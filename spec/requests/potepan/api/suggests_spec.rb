@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Potepan::Api::SuggestsController, type: :request do
-  let!(:match_keywords_rails) { create_list(:potepan_suggest, 5) }
+  let!(:match_keywords_rails) { create_list(:potepan_suggest, 6) }
   let!(:not_match_keyword_rails) { create(:potepan_suggest, keyword: "apache") }
 
   describe "SuggestAPI" do
@@ -19,11 +19,13 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
 
       it "検索マッチしたキーワードを5件返している" do
         expect(json_response.length).to eq 5
-        expect(json_response).to eq ["rails6", "rails7", "rails8", "rails9", "rails10"]
+        json_response.each { |word| expect(word).to include "rails" }
+        # 検索マッチしても6番目以降のキーワードは返されない
+        expect(json_response).not_to include match_keywords_rails.last.keyword
       end
 
       it "検索マッチしないキーワードは返さない" do
-        expect(json_response).not_to include "apache"
+        expect(json_response).not_to include not_match_keyword_rails.keyword
       end
     end
 
