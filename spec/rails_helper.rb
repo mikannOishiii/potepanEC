@@ -66,6 +66,4 @@ RSpec.configure do |config|
 
   # FactoryBotの省略
   config.include FactoryBot::Syntax::Methods
-  # json_responseを使えるようにする
-  config.include Requests::JsonHelpers, type: :request
 end
