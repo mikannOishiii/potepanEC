@@ -4,7 +4,7 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
   let!(:match_keywords_rails) { create_list(:potepan_suggest, 6) }
   let!(:not_match_keyword_rails) { create(:potepan_suggest, keyword: "apache") }
 
-  shared_context 'json_response' do
+  shared_context "json_response" do
     let(:json_response) { JSON.parse(response.body) }
   end
 
@@ -80,7 +80,7 @@ RSpec.describe Potepan::Api::SuggestsController, type: :request do
       end
 
       it "エラーメッセージを返す" do
-        expect(json_response).to eq "API key authentication failed"
+        expect(response.body).to eq "API key authentication failed"
       end
     end
   end

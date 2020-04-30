@@ -18,7 +18,6 @@ class Potepan::ApiController < ActionController::API
   end
 
   def render_unauthorized
-    error_message = "API key authentication failed"
-    render json: error_message.to_json, status: :unauthorized
+    render plain: "API key authentication failed", status: :unauthorized
   end
 end
