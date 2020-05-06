@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_032920) do
+ActiveRecord::Schema.define(version: 2020_04_24_042214) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_032920) do
   end
 
   create_table "potepan_suggests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "keyword"
+    t.string "keyword", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
