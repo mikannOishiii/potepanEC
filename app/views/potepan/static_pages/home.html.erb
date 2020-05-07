@@ -1,11 +1,22 @@
-<%= render 'main_banner' %>
+<%= render "main_banner" %>
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
   <div class="container">
-    <%= render 'featured_collection' %>
-    <%= render 'featured_products' %>
+    <%= render "featured_collection" %>
+    <div class="row featuredProducts">
+      <div class="col-xs-12">
+        <div class="page-header">
+          <h4>新着商品</h4>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="owl-carousel featuredProductsSlider">
+          <%= render partial: "new_product", collection: @new_products %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<%= render 'shared/partners' %>
-<%= render 'layouts/quick_modal'%>
+<%= render "shared/partners" %>
+<%= render "layouts/quick_modal" %>
