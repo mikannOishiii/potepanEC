@@ -1,0 +1,6 @@
+<li>
+  <%= link_to potepan_category_path(taxon.id, color: color.name) do %>
+    <%= color.presentation %>
+    <span>(<%= taxon.all_products.filter_by_color(color.name).count %>)</span>
+  <% end %>
+</li>

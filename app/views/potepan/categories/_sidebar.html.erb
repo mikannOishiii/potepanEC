@@ -1,0 +1,28 @@
+<div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+  <div class="panel panel-default">
+    <div class="panel-heading">商品カテゴリー</div>
+    <div class="panel-body">
+      <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
+        <ul class="nav navbar-nav side-nav">
+          <%= render partial: "taxonomy", collection: taxonomys %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default filterNormal">
+    <div class="panel-heading">色から探す</div>
+    <div class="panel-body">
+      <ul class="list-unstyled">
+        <%= render partial: "color", collection: colors, locals: { taxon: taxon } %>
+      </ul>
+    </div>
+  </div>
+  <div class="panel panel-default filterNormal">
+    <div class="panel-heading">サイズから探す</div>
+    <div class="panel-body">
+      <ul class="list-unstyled clearfix">
+        <%= render partial: "size", collection: sizes, locals: { taxon: taxon } %>
+      </ul>
+    </div>
+  </div>
+</div>
