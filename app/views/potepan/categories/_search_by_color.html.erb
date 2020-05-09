@@ -2,11 +2,14 @@
   <div class="panel-heading">色から探す</div>
   <div class="panel-body">
     <ul class="list-unstyled">
-      <li><a href="#">ブラック<span>(15)</span></a></li>
-      <li><a href="#">ホワイト<span>(10)</span></a></li>
-      <li><a href="#">レッド<span>(7)</span></a></li>
-      <li><a href="#">ブルー<span>(12)</span></a></li>
-      <li><a href="#">オレンジ<span>(12)</span></a></li>
+      <% colors.each do |color| %>
+        <li>
+          <%= link_to potepan_category_path(taxon.id, color: color.name) do %>
+            <%= color.presentation %>
+            <span>(<%= taxon.all_products.filter_by_color(color.name).count %>)</span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
