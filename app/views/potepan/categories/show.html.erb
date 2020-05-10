@@ -4,15 +4,8 @@
 <section class="mainContent clearfix productsContent">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
-        <%= render 'search_by_category', taxonomies: @taxonomies, product: @products %>
-        <%= render 'search_by_color' %>
-        <%= render 'search_by_size' %>
-      </div>
-      <div class="col-md-9 col-sm-8 col-xs-12">
-        <%= render 'filter_area' %>
-        <%= render 'products', products: @products %>
-      </div>
+      <%= render "sidebar", taxonomies: @taxonomies, colors: @colors, sizes: @sizes %>
+      <%= render "main_area", products: @products, taxon: @taxon %>
     </div>
   </div>
 </section>

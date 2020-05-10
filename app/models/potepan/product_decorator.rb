@@ -1,6 +1,9 @@
 module Potepan::ProductDecorator
   def self.prepended(base)
     base.scope :new_available, -> { base.order(available_on: :desc) }
+    base.scope :filter_by_option_value, -> (option_value) {
+      base.joins(variants_including_master: :option_values).with(option_value)
+    }
   end
 
   def order_filtered_related_products

@@ -1,0 +1,5 @@
+<li>
+  <%= link_to potepan_category_path(params[:id], size: size.name) do %>
+    <%= size.presentation %><span>(<%= count_number_of_products(size.name) %>)</span>
+  <% end %>
+</li>

@@ -1,0 +1,16 @@
+<li>
+  <a href="javascript:;" data-toggle="collapse" data-target="#taxonomy_<%= taxonomy.id %>">
+    <%= taxonomy.name %>
+    <i class="fa fa-plus"></i>
+  </a>
+  <ul id="taxonomy_<%= taxonomy.id %>" class="collapse collapseItem">
+    <% taxonomy.root.leaves.each do |leaf| %>
+      <li>
+        <%= link_to potepan_category_path(leaf.id) do %>
+          <i class="fa fa-caret-right" aria-hidden="true"></i>
+          <%= leaf.name %> <span>(<%= leaf.all_products.count %>)</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</li>

@@ -1,0 +1,5 @@
+<li>
+  <%= link_to potepan_category_path(params[:id], color: color.name) do %>
+    <%= color.presentation %><span>(<%= count_number_of_products(color.name) %>)</span>
+  <% end %>
+</li>
