@@ -33,11 +33,15 @@ RSpec.feature "Categories", type: :feature do
     expect(page).to have_content "#{taxon1.name} (#{taxon1.all_products.count})"
     expect(page).to have_content "#{taxon2.name} (#{taxon2.all_products.count})"
     # colorsが表示される
-    expect(page).
-      to have_content "#{value_red.presentation} (#{taxon1.all_products.filter_by_color(value_red.name).count})"
+    within find("a", text: "Red") do
+      expect(page).to have_selector "span", text: "(1)"
+    end
     # sizesが表示される
-    expect(page).
-      to have_content "#{value_small.presentation} (#{taxon1.all_products.filter_by_size(value_small.name).count})"
+    within ".list-unstyled.clearfix" do
+      within find("a", text: "S") do
+        expect(page).to have_selector "span", text: "(1)"
+      end
+    end
   end
 
   scenario "カテゴリに紐づく商品一覧が表示される" do
@@ -49,7 +53,7 @@ RSpec.feature "Categories", type: :feature do
   end
 
   scenario "Redに紐づく商品一覧が表示される" do
-    click_link "Red (1)"
+    click_link "Red(1)"
     expect(page).to have_content product1.name
     expect(page).to have_content product1.display_price
     expect(page).not_to have_content product2.name
@@ -57,7 +61,7 @@ RSpec.feature "Categories", type: :feature do
   end
 
   scenario "Smallに紐づく商品一覧が表示される" do
-    click_link "S (1)"
+    click_link "S(1)"
     expect(page).to have_content product2.name
     expect(page).to have_content product2.display_price
     expect(page).not_to have_content product1.name
