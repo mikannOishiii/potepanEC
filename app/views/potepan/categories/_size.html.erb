@@ -1,6 +1,5 @@
 <li>
-  <%= link_to potepan_category_path(taxon.id, size: size.name) do %>
-    <%= size.presentation %>
-    <span>(<%= taxon.all_products.filter_by_size(size.name).count %>)</span>
+  <%= link_to potepan_category_path(params[:id], size: size.name) do %>
+    <%= size.presentation %><span>(<%= count_number_of_products(size.name) %>)</span>
   <% end %>
 </li>
