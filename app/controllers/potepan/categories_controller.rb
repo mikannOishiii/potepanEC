@@ -10,9 +10,9 @@ class Potepan::CategoriesController < ApplicationController
     @colors = Spree::OptionType.find_by(presentation: "Color").option_values
     @sizes = Spree::OptionType.find_by(presentation: "Size").option_values
     if color
-      @products = @taxon.all_products.filter_by_color(color)
+      @products = @taxon.all_products.filter_by_option_value(color)
     elsif size
-      @products = @taxon.all_products.filter_by_size(size)
+      @products = @taxon.all_products.filter_by_option_value(size)
     else
       @products = @taxon.all_products.includes(master: [:images, :default_price])
     end
