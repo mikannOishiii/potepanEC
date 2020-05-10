@@ -6,7 +6,7 @@ class Potepan::CategoriesController < ApplicationController
     color = params[:color]
     size = params[:size]
     @taxon = Spree::Taxon.find(params[:id])
-    @taxonomys = Spree::Taxonomy.all.includes(:root)
+    @taxonomies = Spree::Taxonomy.all.includes(:root)
     @colors = Spree::OptionType.find_by(presentation: "Color").option_values
     @sizes = Spree::OptionType.find_by(presentation: "Size").option_values
     if color
